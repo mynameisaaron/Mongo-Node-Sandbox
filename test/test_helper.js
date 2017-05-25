@@ -1,13 +1,27 @@
 const mongoose = require('mongoose');
 
-//telling mongoose that we want to use the ES6 to make a promise, just like node's global promise
-////deprication message removed
+
 mongoose.Promise = global.Promise;
+
+before((done)=>{
+
+//Connection Logic moved to before(done) block to guarantee that this connection to the database is run 
+// exactly once before anything else
+
+//after connection is successful the done function is run!
 
 mongoose.connect('mongodb://localhost/user_test');
 mongoose.connection
-.once('open', ()=>{})
+.once('open', ()=>{done()})
 .on('error', (error)=>{console.warn('Warning', error)});
+
+
+
+
+
+});
+
+
 
 
 
