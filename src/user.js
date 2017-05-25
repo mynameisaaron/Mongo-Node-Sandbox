@@ -12,5 +12,5 @@ const UserSchema = new Schema(
 
 const User = mongoose.model('user', UserSchema);
 
-//export only the model class (convention)
+
 module.exports = User;

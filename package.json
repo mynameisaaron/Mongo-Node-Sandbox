@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    //same cli command npm run test
+    //--exec means run the following code with nodemon in the cli
+    //-R minimal format
+    //min minimal format
+    "test": "nodemon --exec \"mocha -R min\""
   },
   "author": "",
   "license": "ISC",
