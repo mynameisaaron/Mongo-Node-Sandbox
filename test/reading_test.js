@@ -10,8 +10,16 @@ beforeEach((done)=>{
     .then(()=>{done();})
 });
 
-    it('finds all users with a name of joe',()=>{
-        //joe.TheQueryWillGoHere
+    it('finds all users with a name of joe',(done)=>{
+        
+        //Static method of the model
+        //find or findOne
+        User.find({name:"Joe"})
+        .then((UsersFound)=>{
+            console.log(UsersFound);
+            done();
+        });
+
     })
 
 });
