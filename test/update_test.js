@@ -8,7 +8,7 @@ describe('Updateing a user', () => {
     let joe;
 
     beforeEach((done) => {
-        joe = new User({ name: 'Joe' });
+        joe = new User({ name: 'Joe', postCount: 0 });
         joe.save()
             .then(() => { done() });
     });
@@ -79,6 +79,23 @@ describe('Updateing a user', () => {
 
     });
 
+//
+    // new 'postCount property was added to the User Model
+    //Here use 'Increment' Mongo Update Operator (Operators used with the update function)
+    // https://docs.mongodb.com/manual/reference/operator/update/
+    it('Increment postCount by one',(done)=>{
+
+        User.update({name:'Joe'}, {$inc: { postCount : 1}})
+        .then(() => User.findOne({name:'Joe'}))
+        .then((userJoe)=>{
+            assert(userJoe.postCount === 1);
+            done();
+        })
+       
+            
+        });
+
+    });
 
 
-});
+
