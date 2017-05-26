@@ -35,4 +35,17 @@ describe('Validation Testing', () => {
 
     });
 
+    it('require as user name to be longer than two characters',(done)=>{
+
+        var newUser = new User({name:'Aa'});
+
+        var validationObject = newUser.validateSync();
+
+               
+        assert(Boolean(validationObject));
+        assert('Name must longer than two characters' === validationObject.errors.name.message)
+        done();
+
+    });
+
 });
