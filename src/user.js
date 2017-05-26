@@ -5,7 +5,12 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
 {
-    name : String,
+    // Mongoose Validation on the Model
+    name : 
+    {
+        type : String,
+        required : [true, 'Name field required']
+    },
     postCount : Number
 }
 

@@ -79,10 +79,7 @@ describe('Updateing a user', () => {
 
     });
 
-//
-    // new 'postCount property was added to the User Model
-    //Here use 'Increment' Mongo Update Operator (Operators used with the update function)
-    // https://docs.mongodb.com/manual/reference/operator/update/
+
     it('Increment postCount by one',(done)=>{
 
         User.update({name:'Joe'}, {$inc: { postCount : 1}})
