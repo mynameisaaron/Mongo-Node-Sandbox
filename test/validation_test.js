@@ -9,11 +9,11 @@ describe('Validation Testing', () => {
 
         var newUser = new User({ name: undefined, postCount: 0 });
 
-        //Here is the Mongoose Validation Object
+       
         const ValidationResult = newUser.validateSync();
 
         if (ValidationResult) {
-            //Usefull to remember this deeply nested Validation Message in the validation result object
+            
             const ValidationMessage = ValidationResult.errors.name.message;
             console.log(ValidationMessage);
         }
@@ -24,28 +24,41 @@ describe('Validation Testing', () => {
 
     });
 
-    it('requires a user name (using the Asynchronous Method)',(done)=>{
+    it('requires a user name (using the Asynchronous Method)', (done) => {
 
-        var newUser = new User({name:undefined});
+        var newUser = new User({ name: undefined });
 
-        newUser.validate((_ValidationResult)=>{
-            console.log('Message from the Asynchronous Method : '+_ValidationResult.errors.name.message)
+        newUser.validate((_ValidationResult) => {
+            console.log('Message from the Asynchronous Method : ' + _ValidationResult.errors.name.message)
             done();
         });
 
     });
 
-    it('require as user name to be longer than two characters',(done)=>{
+    it('require as user name to be longer than two characters', (done) => {
 
-        var newUser = new User({name:'Aa'});
+        var newUser = new User({ name: 'Aa' });
 
         var validationObject = newUser.validateSync();
 
-               
+
         assert(Boolean(validationObject));
         assert('Name must longer than two characters' === validationObject.errors.name.message)
         done();
 
+    });
+
+    it('Testing that an invalid User cannot be added to the database', (done) => {
+        var someone = new User({ name: 'Xu' });
+
+        //expecting a promise with negative result, use catch block, not then
+        someone.save()
+            .catch(validationObject => 
+            {
+                const validationMessage = validationObject.errors.name.message;
+                assert(validationMessage === 'Name must longer than two characters');
+                done();
+            });
     });
 
 });
