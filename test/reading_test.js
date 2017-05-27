@@ -23,7 +23,7 @@ describe('Reading users out of the database', () => {
 
     })
 
-    it('find one user with a particular _id',(done)=>{
+    it('find one user with a particular property, like _id',(done)=>{
 
         User.findOne({_id:joe._id})
         .then((SingleUser)=>{

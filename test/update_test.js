@@ -21,23 +21,28 @@ describe('Updateing a user', () => {
         joe.save()
             .then(() => User.find({}))
             .then( (userArray) => {
-
-                    assert(userArray.length === 1);
-                    assert(userArray[0].name === 'Aaron');
+                   
+                    assert(userArray.length === 2);
+                    assert(userArray[1].name === 'Aaron');
+                    
                     done();
 
                 });
 
     });
 
+//For some 
+
     it('update function on the object', (done)=>{
-        joe.update({name:"Aaron Brightman"})
+        joe.update({name:"Brightman"})
         .then(()=>User.find({}))
         .then((userArray)=>{
-            assert(userArray.length === 1);
-            assert(userArray[0].name === 'Aaron Brightman');
+             assert(userArray.length === 1);
+             assert(userArray[0].name === 'Brightman');
+
+            
             done();
-        })
+        });
     });
 
     it('static method find all record with a match and Update',(done)=>{
