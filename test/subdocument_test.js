@@ -42,6 +42,34 @@ describe('Sub-Schema of User Model', () => {
 
     });
 
+    it('Remove a Subdocument from a record',(done)=>{
+
+               
+        
+        var aaron = new User({name:'Aaron Brightman', posts:[{title:'A post'}]});
+        aaron.save()
+        .then(()=> User.findOne({name:'Aaron Brightman'}))
+        .then(data =>{ 
+           
+            //remove method comes from Mongoose, special to use with database
+            data.posts[0].remove();
+            //Unlike Removing a record, MUST CALL SAVE on the main record after changing the Subdocument
+            return data.save();
+    })
+
+
+    .then(()=>
+        User.findOne({name:'Aaron Brightman'})
+    )
+    .then((aaron)=> {
+        assert(aaron.posts.length === 0);
+         done();
+         })
+        
+
+
+    });
+
 
 
 

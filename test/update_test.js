@@ -33,7 +33,7 @@ describe('Updateing a user', () => {
 
     });
 
-    //For some 
+    
 
     it('update function on the object', (done) => {
         joe.update({ name: "Brightman" })
