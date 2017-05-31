@@ -22,7 +22,7 @@ const UserSchema = new Schema(
         }
 
     },
-    //postCount : Number,
+    likes : Number,
     posts : [PostSchema]
 }
 

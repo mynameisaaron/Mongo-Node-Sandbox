@@ -86,13 +86,13 @@ describe('Updateing a user', () => {
 
     });
 
-    //appending it with an x, it will no longer run when mocha runs
-    xit('Increment postCount by one', (done) => {
+    
+    it('Increment postCount by ten', (done) => {
 
-        User.update({ name: 'Joe' }, { $inc: { postCount: 1 } })
+        User.update({ name: 'Joe' }, { $inc: { likes: 10 } })
             .then(() => User.findOne({ name: 'Joe' }))
             .then((userJoe) => {
-                assert(userJoe.postCount === 1);
+                assert(userJoe.likes === 10);
                 done();
             })
 
