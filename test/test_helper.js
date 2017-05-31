@@ -21,8 +21,15 @@ mongoose.connection
 
 
 beforeEach((done)=>{
-    mongoose.connection.collections.users.drop(()=>{
+    const {users, blogposts, comments} = mongoose.connections.collections;
+    users.drop(()=>{
      
-        done();
+        blogposts.drop(()=>{
+
+            comments.drop( () => {
+                done();
+            } );
+        })
+        
     });
 });
