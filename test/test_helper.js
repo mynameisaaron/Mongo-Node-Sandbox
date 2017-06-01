@@ -19,9 +19,11 @@ mongoose.connection
 
 
 
-
+//Mongoose cannot call the database and drop all at the same time, must be done in sequence
 beforeEach((done)=>{
-    const {users, blogposts, comments} = mongoose.connections.collections;
+    const {users, comments, blogposts} = mongoose.connection.collections;
+    
+   
     users.drop(()=>{
      
         blogposts.drop(()=>{
@@ -31,5 +33,6 @@ beforeEach((done)=>{
             } );
         })
         
-    });
-});
+    })
+
+})

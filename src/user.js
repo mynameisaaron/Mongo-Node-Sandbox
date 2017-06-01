@@ -24,7 +24,7 @@ const UserSchema = new Schema(
     },
     likes : Number,
     posts : [PostSchema],
-    blogPosts : [{type:Schema.Types.ObjectId, ref:blogpost}]
+    blogPosts : [{type:Schema.Types.ObjectId, ref:'blogpost'}]
 }
 
 );
