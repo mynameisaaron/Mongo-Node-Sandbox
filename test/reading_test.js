@@ -28,8 +28,8 @@ describe('Reading users out of the database', () => {
         User.findOne({_id:joe._id})
         .then((SingleUser)=>{
             
-            assert(SingleUser.name === "Joe")
-            //GOTCHYA, Carefull to execute done inside the promise
+            assert(SingleUser.name === "Joe");
+           
             done();
         });
         

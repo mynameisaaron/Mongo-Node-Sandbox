@@ -1,5 +1,4 @@
-// Virtual Type in Mongoose is any property that does Not persist in the database
-// but is created/generated on the fly
+
 const assert = require('assert');
 const User = require('../src/user');
 

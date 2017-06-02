@@ -1,5 +1,3 @@
-//Update has three static methods and two methods on the object
-//five update methods in total
 
 const assert = require('assert');
 const User = require('../src/user');
@@ -49,7 +47,7 @@ describe('Updateing a user', () => {
 
     it('static method find all record with a match and Update', (done) => {
 
-        //static  update takes two paramters, one is the filter then the givin data
+       
         User.update({ name: "Joe" }, { name: "Alex" })
             .then(() => User.find({}))
             .then((userArray) => {
@@ -63,7 +61,7 @@ describe('Updateing a user', () => {
 
     it('static method find single record with a match and Update', (done) => {
 
-        //static  update takes two paramters, one is the filter then the givin data
+      
         User.findOneAndUpdate({ name: "Joe" }, { name: "Erin" })
             .then(() => User.find({}))
             .then((userArray) => {

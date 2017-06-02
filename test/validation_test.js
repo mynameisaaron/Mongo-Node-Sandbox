@@ -1,5 +1,3 @@
-// Validation are the Advanced Features of the Mongoose API
-
 const assert = require('assert');
 const User = require('../src/user');
 
@@ -51,7 +49,7 @@ describe('Validation Testing', () => {
     it('Testing that an invalid User cannot be added to the database', (done) => {
         var someone = new User({ name: 'Xu' });
 
-        //expecting a promise with negative result, use catch block, not then
+        
         someone.save()
             .catch(validationObject => 
             {

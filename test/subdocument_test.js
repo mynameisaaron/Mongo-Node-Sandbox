@@ -51,9 +51,9 @@ describe('Sub-Schema of User Model', () => {
         .then(()=> User.findOne({name:'Aaron Brightman'}))
         .then(data =>{ 
            
-            //remove method comes from Mongoose, special to use with database
+            
             data.posts[0].remove();
-            //Unlike Removing a record, MUST CALL SAVE on the main record after changing the Subdocument
+            
             return data.save();
     })
 

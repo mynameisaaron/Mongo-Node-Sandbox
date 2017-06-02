@@ -29,8 +29,7 @@ const UserSchema = new Schema(
 
 );
 
-//1) virtual is always set after the schema decleration
-//2) ES6 geter function, function IS NOT a fat-arrow function - becuase we need 'this' to equal the schema and not the whole file
+
 UserSchema.virtual('postCount').get(function(){
     return this.posts.length; 
 });

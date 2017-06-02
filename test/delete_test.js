@@ -1,6 +1,3 @@
-//basically three static methods and one instance.remove to deleate items
-//four methods in all
-
 const assert = require('assert');
 const User = require('../src/user');
 
@@ -42,7 +39,7 @@ describe('Deleting a User', () => {
     });
 
 
-    //Returns the first match
+   
     it('class method findOneAndRemove', (done) => {
 
         User.findOneAndRemove({ name: 'Joe' })
@@ -56,7 +53,7 @@ describe('Deleting a User', () => {
 });
 
 
-//Just enter the 'Raw' ObjectId property
+
     it('class method findByIdAndRemove', (done) => {
         User.findByIdAndRemove(joe._id)
         .then(()=>User.findOne({name:'Joe'}))
