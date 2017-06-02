@@ -10,32 +10,7 @@ describe('Deleting a User', () => {
             .then(() => done());
     });
 
-    // it.only('model instance remove', (done) => {
-
-     
-    //     joe.remove()
-    //         .then(() => User.findOne({ name: 'Joe' }))
-    //         .then((user) => {
-    //             assert(user === null);
-    //             done();
-    //         });
-
-
-
-
-
-
-
-    // });
-//  it.only('model instance remove', (done) => {
-//      joe.remove()
-//        .then(() => User.findOne({ name: 'Joe' }))
-//        .then((user) => {
-//          assert(user === null);
-//          done();
-//        });
-//    });
-
+   
 
     it('class method remove', (done) => {
         User.remove({ name: 'Joe' })

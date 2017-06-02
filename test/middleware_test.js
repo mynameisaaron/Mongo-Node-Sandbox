@@ -35,11 +35,6 @@ describe('MiddleWare',()=>{
     });
 
     it('test that the test is setup part2',done=>{
-        // BlogPost.find({})
-        //     .then(threeBlogPosts=>{
-        //         assert(threeBlogPosts.length===3);
-        //         done();
-        //     })
         BlogPost.count()
         .then(bpnumber=>{
             assert(bpnumber === 3);
