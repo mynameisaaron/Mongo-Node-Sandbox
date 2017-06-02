@@ -10,23 +10,31 @@ describe('Deleting a User', () => {
             .then(() => done());
     });
 
-    it('model instance remove', (done) => {
+    // it.only('model instance remove', (done) => {
 
-        //this is actually not uncommon to chain promises together here
-        joe.remove()
-            .then(() => User.findOne({ name: 'Joe' }))
-            .then((user) => {
-                assert(user === null);
-                done();
-            });
-
-
+     
+    //     joe.remove()
+    //         .then(() => User.findOne({ name: 'Joe' }))
+    //         .then((user) => {
+    //             assert(user === null);
+    //             done();
+    //         });
 
 
 
 
 
-    });
+
+
+    // });
+//  it.only('model instance remove', (done) => {
+//      joe.remove()
+//        .then(() => User.findOne({ name: 'Joe' }))
+//        .then((user) => {
+//          assert(user === null);
+//          done();
+//        });
+//    });
 
 
     it('class method remove', (done) => {
@@ -39,7 +47,7 @@ describe('Deleting a User', () => {
     });
 
 
-   
+
     it('class method findOneAndRemove', (done) => {
 
         User.findOneAndRemove({ name: 'Joe' })
@@ -49,20 +57,20 @@ describe('Deleting a User', () => {
                 done();
             })
 
-    
-});
+
+    });
 
 
 
     it('class method findByIdAndRemove', (done) => {
         User.findByIdAndRemove(joe._id)
-        .then(()=>User.findOne({name:'Joe'}))
-        .then((theUser)=>{
-            assert(theUser === null);
-            done();
-        });
+            .then(() => User.findOne({ name: 'Joe' }))
+            .then((theUser) => {
+                assert(theUser === null);
+                done();
+            });
 
-     });
+    });
 
 
 
